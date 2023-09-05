@@ -118,19 +118,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_GAME] = LAYOUT(
   /* Game
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
-   * |    T   |  Tab   |    Q   |    W   |    E   |    R   |  |    Y   |    U   |    I   |    O   |    P   |  Bksp  |
+   * |    T   |  Tab   |    Q   |    W   |    E   |    R   |  |    1   |    2   |    3   |    4   |    5   |    6   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |    G   |  Shift |    A   |    S   |    D   |    F   |  |    H   |    J   |    K   |    L   |    ;   |   ""   |
+   * |    G   |  Shift |    A   |    S   |    D   |    F   |  |        | Mouse1 | Mouse2 |        |        |        |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |    B   |  Ctrl  |    Z   |    X   |    C   |    V   |  |    N   |    M   |    ,   |    .   |    /   | Enter  |
+   * |    B   |  Ctrl  |    Z   |    X   |    C   |    V   |  |        | Mouse3 | Mouse4 |        |        |        |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   *                            |   Esc  |  Alt   | Space  |  |        |TG(GAME)|
+   *                            |   Esc  |  Alt   | Space  |  |TG(GAME)|        |
    *                            `--------------------------'  `-----------------'
    */
-         KC_T,  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,       KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
-         KC_G,  KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
-         KC_B,  KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
-                                  KC_ESC, KC_LALT, KC_SPC,     XXXXXXX, TG_GAME
+         KC_T,  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,       KC_1,    KC_2,    KC_3,    KC_4,   KC_5,     KC_6,
+         KC_G,  KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, KC_BTN1, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX,
+         KC_B,  KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, KC_BTN3, KC_BTN4, XXXXXXX, XXXXXXX, XXXXXXX,
+                                  KC_ESC, KC_LALT, KC_SPC,     TG_GAME, XXXXXXX
 
   ),
 };
