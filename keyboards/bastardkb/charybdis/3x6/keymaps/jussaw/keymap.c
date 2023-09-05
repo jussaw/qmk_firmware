@@ -120,16 +120,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
    * |    T   |  Tab   |    Q   |    W   |    E   |    R   |  |    1   |    2   |    3   |    4   |    5   |    6   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |    G   |  Shift |    A   |    S   |    D   |    F   |  | MsWl U | Mouse1 | Mouse2 |        |        |        |
+   * |    G   |  Shift |    A   |    S   |    D   |    F   |  |        | Mouse1 | Mouse2 | MsWl U |        |        |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |    B   |  Ctrl  |    Z   |    X   |    C   |    V   |  | MsWl D | Mouse3 | Mouse4 |        |        |        |
+   * |    B   |  Ctrl  |    Z   |    X   |    C   |    V   |  |        | Mouse3 | Mouse4 | MsWl D |        |        |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
    *                            |   Esc  |  Alt   | Space  |  |TG(GAME)|        |
    *                            `--------------------------'  `-----------------'
    */
          KC_T,  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,       KC_1,    KC_2,    KC_3,    KC_4,   KC_5,     KC_6,
-         KC_G,  KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,    KC_WH_U, KC_BTN1, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX,
-         KC_B,  KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_WH_D, KC_BTN3, KC_BTN4, XXXXXXX, XXXXXXX, XXXXXXX,
+         KC_G,  KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, KC_BTN1, KC_BTN2, KC_WH_U, XXXXXXX, XXXXXXX,
+         KC_B,  KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, KC_BTN3, KC_BTN4, KC_WH_D, XXXXXXX, XXXXXXX,
                                   KC_ESC, KC_LALT, KC_SPC,     TG_GAME, XXXXXXX
 
   ),
