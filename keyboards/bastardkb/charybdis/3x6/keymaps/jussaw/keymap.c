@@ -32,12 +32,36 @@ enum custom_keycodes {
     TG_GAME
 };
 
+/* Layer Keys */
 #define LOWER MO(_LOWER)
 #define UPPER MO(_UPPER)
 #define ADJUST MO(_ADJUST)
+#define DF_QWRT DF(_QWERTY)
 #define TG_GAME TG(_GAME)
 
-// Trackball Settings
+/* Mod Tap Keys for Qwerty Layer */
+#define A_LGUI LGUI_T(KC_A)
+#define S_LALT LALT_T(KC_S)
+#define D_LCTL LCTL_T(KC_D)
+#define F_LSFT LSFT_T(KC_F)
+#define J_RSFT RSFT_T(KC_J)
+#define K_RCTL RCTL_T(KC_K)
+#define L_RALT RALT_T(KC_L)
+#define SC_RGUI RGUI_T(KC_SCLN)
+
+/* Mod Tap Keys for Lower Layer */
+#define MIN_RSFT RSFT_T(KC_MINS)
+#define EQL_RCTL RCTL_T(KC_EQL)
+#define LBC_RALT RALT_T(KC_LBRC)
+#define RBC_RGUI RGUI_T(KC_RBRC)
+
+/* Mod Tap Keys for Upper Layer */
+#define F1_LGUI LGUI_T(KC_F1)
+#define F2_LALT LALT_T(KC_F2)
+#define F3_LCTL LCTL_T(KC_F3)
+#define F4_LSFT LSFT_T(KC_F4)
+
+/* Trackball Settings */
 #define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
 #define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
 #define CHARYBDIS_MINIMUM_SNIPING_DPI 200
@@ -45,60 +69,59 @@ enum custom_keycodes {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = LAYOUT(
   /* Qwerty
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
-   * |  Tab   |    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |  Bksp  |
+   * |  Tab   |    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |  Del   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  Esc   |    A   |    S   |    D   |    F   |    G   |  |    H   |    J   |    K   |    L   |    ;   | "",GUI |
+   * |  Esc   | A,LGUI | S,LALT | D,LCTL | F,LSFT |    G   |  |    H   | J,RSFT | K,RCTL | L,RALT | ;,RGUI |   ""   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  Alt   |    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   | Enter  |
+   * |  CAPS  |    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   | Enter  |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   *                            |  Ctrl  | Lower  | Space  |  | Shift  | Upper  |
+   *                            |  Hyper | Lower  | Space  |  |  Bksp  | Upper  |
    *                            `--------------------------'  `-----------------'
    */
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
-       KC_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, RGUI_T(KC_QUOT),
-      KC_LALT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
-                                 KC_LCTL,   LOWER,  KC_SPC,    KC_RSFT,   UPPER
+  [_QWERTY] = LAYOUT(
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_DEL,
+       KC_ESC,  A_LGUI,  S_LALT,  D_LCTL,  F_LSFT,    KC_G,       KC_H,  J_RSFT,  K_RCTL,  L_RALT, SC_RGUI, KC_QUOT,
+      KC_CAPS,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
+                                 KC_HYPR,   LOWER,  KC_SPC,    KC_BSPC,   UPPER
   ),
 
-  [_LOWER] = LAYOUT(
   /* Lower
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
    * |  Tab   |    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |  Bksp  |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  Esc   |S_D_MOD | DPI_MOD| Mouse2 | Mouse1 | DRGSCRL|  |    `   |    -   |    =   |    [   |    ]   |   \    |
+   * |  Esc   |S_D_MOD | DPI_MOD| Mouse2 | Mouse1 | DRGSCRL|  |    `   | -,RSFT | =,RCTL | [,RALT | ],RGUI |   \    |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
    * |  Alt   |S_D_RMOD|DPI_RMOD| Mouse4 | Mouse5 | SNIPING|  |    ~   |    _   |    +   |    {   |    }   |   |    |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   *                            |  Ctrl  | Trans  |  Alt   |  | Shift  | Adjust |
+   *                            |  Hyper | Trans  | Space  |  |  Bksp  | Adjust |
    *                            `--------------------------'  `-----------------'
    */
+  [_LOWER] = LAYOUT(
        KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-       KC_ESC, S_D_MOD, DPI_MOD, KC_BTN2, KC_BTN1, DRGSCRL,     KC_GRV, KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
+       KC_ESC, S_D_MOD, DPI_MOD, KC_BTN2, KC_BTN1, DRGSCRL,     KC_GRV,MIN_RSFT,EQL_RCTL,LBC_RALT,RBC_RGUI, KC_BSLS,
       KC_LALT,S_D_RMOD,DPI_RMOD, KC_BTN4, KC_BTN5, SNIPING,    KC_TILD, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-                                 KC_LCTL, KC_TRNS, KC_LALT,    KC_RSFT,  ADJUST
+                                 KC_HYPR, KC_TRNS,  KC_SPC,    KC_BSPC,  ADJUST
   ),
 
-  [_UPPER] = LAYOUT(
   /* Upper
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
-   * |  Tab   |    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |  Bksp  |
+   * |  Tab   |    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |  Del   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |   F11  |   F1   |   F2   |   F3   |   F4   |   F5   |  |  Ins   |  Left  |  Down  |   Up   | Right  |  Del   |
+   * |   F11  |F1,LGUI |F2,LALT |F3,LCTL |F4,LSFT |   F5   |  |  Ins   |  Left  |  Down  |   Up   | Right  |   \    |
    * +--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
    * |   F12  |   F6   |   F7   |   F8   |   F9   |  F10   |  |PrntScrn|  Home  |Pg Down | Pg Up  |  End   | Enter  |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   *                            |  Ctrl  | Adjust |  Alt   |  | Shift  | Trans  |
+   *                            |  Hyper | Adjust | Space  |  |  Bksp  | Trans  |        |
    *                            `--------------------------'  `-----------------'
    */
-       KC_TAB,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
-       KC_F11,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_INS, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,  KC_DEL,
+  [_UPPER] = LAYOUT(
+       KC_TAB,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_DEL,
+       KC_F11, F1_LGUI, F2_LALT, F3_LCTL, F4_LSFT,   KC_F5,     KC_INS, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_BSLS,
        KC_F12,   KC_F5,   KC_F7,   KC_F8,   KC_F9,  KC_F10,    KC_PSCR, KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  KC_ENT,
-                                 KC_LCTL,  ADJUST, KC_LALT,    KC_RSFT, KC_TRNS
+                                 KC_HYPR,  ADJUST,  KC_SPC,    KC_BSPC, KC_TRNS
   ),
-  [_ADJUST] = LAYOUT(
   /* Adjust
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
    * |  RESET |        |        |        |        |TG(GAME)|  |  Play  |  Prev  |  Next  |        |        |        |
@@ -107,15 +130,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
    * |        |        |        |        |        |        |  |  Vol-  |        |        |        |        |        |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   *                            |        | Trans  |        |  |        | Trans  |
+   *                            |  Hyper | Lower  |        |  |        | Upper  |
    *                            `--------------------------'  `-----------------'
    */
+  [_ADJUST] = LAYOUT(
       QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG_GAME,    KC_MPLY, KC_MPRV, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                                 XXXXXXX, KC_TRNS, XXXXXXX,    XXXXXXX, KC_TRNS
+                                 KC_HYPR, KC_TRNS, XXXXXXX,    XXXXXXX, KC_TRNS
   ),
-  [_GAME] = LAYOUT(
   /* Game
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
    * |    T   |  Tab   |    Q   |    W   |    E   |    R   |  |    1   |    2   |    3   |    4   |    5   |    6   |
@@ -127,6 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                            |   Esc  |  Alt   | Space  |  |TG(GAME)|        |
    *                            `--------------------------'  `-----------------'
    */
+  [_GAME] = LAYOUT(
          KC_T,  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,       KC_1,    KC_2,    KC_3,    KC_4,   KC_5,     KC_6,
          KC_G,  KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, KC_BTN1, KC_BTN2, KC_WH_U, XXXXXXX, XXXXXXX,
          KC_B,  KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, KC_BTN3, KC_BTN4, KC_WH_D, XXXXXXX, XXXXXXX,
