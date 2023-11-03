@@ -32,12 +32,13 @@ enum custom_keycodes {
     TG_GAME
 };
 
+/* Layer Keys */
 #define LOWER MO(_LOWER)
 #define UPPER MO(_UPPER)
 #define ADJUST MO(_ADJUST)
 #define TG_GAME TG(_GAME)
 
-// Trackball Settings
+/* Trackball Settings */
 #define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
 #define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
 #define CHARYBDIS_MINIMUM_SNIPING_DPI 200
