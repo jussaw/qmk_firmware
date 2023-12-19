@@ -20,3 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Mod Tap */
 #define TAP_CODE_DELAY 100
+
+/* Reverse Y Scroll Direction*/
+#define CHARYBDIS_DRAGSCROLL_REVERSE_Y

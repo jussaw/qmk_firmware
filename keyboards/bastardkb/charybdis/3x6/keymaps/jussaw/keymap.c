@@ -91,17 +91,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
    * |  Tab   |    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |  Bksp  |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  Esc   |S_D_MOD | DPI_MOD| Mouse2 | Mouse1 | DRGSCRL|  |    `   | -,RSFT | =,RCTL | [,RALT | ],RGUI |   \    |
+   * |  Esc   |S_D_MOD | DRGSCRL| Mouse2 | Mouse1 | DPI_MOD|  |    `   | -,RSFT | =,RCTL | [,RALT | ],RGUI |   \    |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  Alt   |S_D_RMOD|DPI_RMOD| Mouse4 | Mouse5 | SNIPING|  |    ~   |    _   |    +   |    {   |    }   |   |    |
+   * |  Alt   |S_D_RMOD| SNIPING| Mouse4 | Mouse5 |DPI_RMOD|  |    ~   |    _   |    +   |    {   |    }   |   |    |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
    *                            |  Hyper | Trans  | Space  |  |  Bksp  | Adjust |
    *                            `--------------------------'  `-----------------'
    */
   [_LOWER] = LAYOUT(
        KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-       KC_ESC, S_D_MOD, DPI_MOD, KC_BTN2, KC_BTN1, DRGSCRL,     KC_GRV,MIN_RSFT,EQL_RCTL,LBC_RALT,RBC_RGUI, KC_BSLS,
-      KC_LALT,S_D_RMOD,DPI_RMOD, KC_BTN4, KC_BTN5, SNIPING,    KC_TILD, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+       KC_ESC, S_D_MOD, DRGSCRL, KC_BTN2, KC_BTN1, DPI_MOD,     KC_GRV,MIN_RSFT,EQL_RCTL,LBC_RALT,RBC_RGUI, KC_BSLS,
+      KC_LALT,S_D_RMOD, SNIPING, KC_BTN4, KC_BTN5,DPI_RMOD,    KC_TILD, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
                                  KC_HYPR, KC_TRNS,  KC_SPC,    KC_BSPC,  ADJUST
   ),
 
