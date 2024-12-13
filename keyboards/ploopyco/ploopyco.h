@@ -39,3 +39,5 @@ bool encoder_update_user(uint8_t index, bool clockwise);
 bool encoder_update_kb(uint8_t index, bool clockwise);
 void toggle_drag_scroll(void);
 void cycle_dpi(void);
+
+#define PLOOPY_DRAGSCROLL_INVERT
