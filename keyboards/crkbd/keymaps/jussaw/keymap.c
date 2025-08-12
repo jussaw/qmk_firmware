@@ -44,13 +44,13 @@ enum custom_keycodes {
 
 /* Mod Tap Keys for Qwerty Layer */
 #define A_LGUI LGUI_T(KC_A)
-#define S_LALT LALT_T(KC_S)
-#define D_LCTL LCTL_T(KC_D)
-#define F_LSFT LSFT_T(KC_F)
-#define J_RSFT RSFT_T(KC_J)
-#define K_RCTL RCTL_T(KC_K)
-#define L_RALT RALT_T(KC_L)
-#define SC_RGUI RGUI_T(KC_SCLN)
+#define R_LALT LALT_T(KC_R)
+#define S_LCTL LCTL_T(KC_S)
+#define T_LSFT LSFT_T(KC_T)
+#define N_RSFT RSFT_T(KC_N)
+#define E_RCTL RCTL_T(KC_E)
+#define I_RALT RALT_T(KC_I)
+#define O_RGUI RGUI_T(KC_O)
 
 /* Mod Tap Keys for Lower Layer */
 #define MIN_RSFT RSFT_T(KC_MINS)
@@ -124,19 +124,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Qwerty
    * ,-----------------------------------------------------.  ,-----------------------------------------------------.
-   * |  Tab   |    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |  Del   |
+   * |  Tab   |    Q   |    W   |    F   |    P   |    B   |  |    J   |    L   |    U   |    Y   |    ;   |  Del   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  Esc   | A,LGUI | S,LALT | D,LCTL | F,LSFT |    G   |  |    H   | J,RSFT | K,RCTL | L,RALT | ;,RGUI |   ""   |
+   * |  Esc   | A,LGUI | R,LALT | S,LCTL | T,LSFT |    G   |  |    M   | N,RSFT | E,RCTL | I,RALT | O,RGUI |   ""   |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |  CAPS  |    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   | Enter  |
+   * |  CAPS  |    Z   |    X   |    C   |    D   |    V   |  |    K   |    H   |    ,   |    .   |    /   | Enter  |
    * `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
    *                            |  Hyper | Lower  | Space  |  |  Bksp  | Upper  |        |
    *                            `--------------------------'  `--------------------------'
    */
   [_QWERTY] = LAYOUT_split_3x6_3(
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_DEL,
-       KC_ESC,  A_LGUI,  S_LALT,  D_LCTL,  F_LSFT,    KC_G,       KC_H,  J_RSFT,  K_RCTL,  L_RALT, SC_RGUI, KC_QUOT,
-      KC_CAPS,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
+       KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,       KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN,  KC_DEL,
+       KC_ESC,  A_LGUI,  R_LALT,  S_LCTL,  T_LSFT,    KC_G,       KC_M,  N_RSFT,  E_RCTL,  I_RALT,  O_RGUI, KC_QUOT,
+      KC_CAPS,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,       KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
                                  KC_HYPR,   LOWER,  KC_SPC,    KC_BSPC,   UPPER, XXXXXXX
   ),
 
