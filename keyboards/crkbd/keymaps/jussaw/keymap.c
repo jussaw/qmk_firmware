@@ -1,6 +1,6 @@
 /*
 Copyright 2019 @foostan
-Copyrig2ht 2020 Drashna Jaelre <@drashna>
+Copyright 2020 Drashna Jaelre <@drashna>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include <stdio.h>
 
 enum layers {
     _DEFAULT,
@@ -28,17 +27,6 @@ enum layers {
     _ADJUST,
     _SETTINGS,
     _GAME,
-};
-
-enum custom_keycodes {
-    DEFAULT = SAFE_RANGE,
-    MAC,
-    LOWER,
-    UPPER,
-    UPPER_MAC,
-    ADJUST,
-    SETTINGS,
-    GAME,
 };
 
 /* Layer Keys */
@@ -126,15 +114,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
-        // makes scroll lock a hold instead of toggle
+        // makes scroll lock momentary instead of toggle
         // enables momentary drag scroll on ploopy nano
         case KC_SCRL:
-            record->event.pressed ? tap_code(KC_SCRL) : tap_code(KC_SCRL);
+            tap_code(KC_SCRL);
             return false;
-        // makes num lock a hold instead of toggle
+        // makes num lock momentary instead of toggle
         // prevents accidental ploopy nano going into bootloader
         case KC_NUM:
-            record->event.pressed ? tap_code(KC_NUM) : tap_code(KC_NUM);
+            tap_code(KC_NUM);
             return false;
     }
     return true;  // Process all other keycodes normally
@@ -191,8 +179,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [_LOWER] = LAYOUT_split_3x6_3(
        KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,  KC_DEL,
-       KC_ESC, XXXXXXX, KC_SCRL, KC_BTN2, KC_BTN1,  KC_NUM,     KC_GRV,MIN_RSFT,EQL_RCTL,LBC_RALT,RBC_RGUI, KC_BSLS,
-      KC_CAPS, XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN5, XXXXXXX,    KC_TILD, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+        KC_ESC, XXXXXXX, KC_SCRL, MS_BTN2, MS_BTN1,  KC_NUM,     KC_GRV,MIN_RSFT,EQL_RCTL,LBC_RALT,RBC_RGUI, KC_BSLS,
+       KC_CAPS, XXXXXXX, XXXXXXX, MS_BTN4, MS_BTN5, XXXXXXX,    KC_TILD, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
                                  KC_HYPR, KC_TRNS,  KC_SPC,    KC_BSPC,  ADJUST, XXXXXXX
   ),
 
@@ -238,15 +226,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
    * |DF(QWRT)|        |        | Mouse2 | Mouse1 |        |  |  Vol+  |Ms Left |Ms Down | Ms Up  |Ms Right|        |
    * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-   * |        |        |        | Mouse4 | Mouse5 |        |  |  Vol-  | MsWl L | MsWl D | MsWl U | MsWl R |        |
+   * |        |        |        | Mouse4 | Mouse5 |        |  |  Vol-  | WhlLft | WhlDwn | WhlUp  | WhlRgt |        |
    * `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
    *                            |  Hyper | Lower  |        |  |        | Upper  |        |
    *                            `--------------------------'  `--------------------------'
    */
   [_ADJUST] = LAYOUT_split_3x6_3(
       QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_MPLY, KC_MPRV, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX,
-      DF_QWRT, XXXXXXX, XXXXXXX, KC_BTN2, KC_BTN1, XXXXXXX,     KC_VOLU, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN5, XXXXXXX,     KC_VOLD, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX,
+      DF_QWRT, XXXXXXX, XXXXXXX, MS_BTN2, MS_BTN1, XXXXXXX,     KC_VOLU, MS_LEFT, MS_DOWN,   MS_UP, MS_RGHT, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, MS_BTN4, MS_BTN5, XXXXXXX,     KC_VOLD, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXXXXXX,
                                  KC_HYPR, KC_TRNS, XXXXXXX,     XXXXXXX, KC_TRNS, XXXXXXX
   ),
 
